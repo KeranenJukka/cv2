@@ -22,12 +22,6 @@ componentDidMount () {
     }, 1500);
 
 
-    var wrapperHeight = document.getElementById("wrapper").clientHeight;
-
-    console.log(wrapperHeight)
-
-    document.documentElement.style.setProperty('--wrapper-height', wrapperHeight + "px");
-
 
     var orangebox = document.getElementById("orangebox");
 

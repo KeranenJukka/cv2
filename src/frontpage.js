@@ -36,7 +36,7 @@ componentDidMount () {
 
         // Orangebox animation
 
-        if (window.pageYOffset > 10) {
+        if (window.pageYOffset > 50) {
 
             gsap.to(orangebox, 1, {width: "0%"})
 

@@ -1,5 +1,6 @@
 html {
-    scroll-behavior: smooth;
+    scroll-behavior: smoot
+    
 }
 
 
@@ -16,6 +17,8 @@ body {
     --color4: #E8E8E8;
     --color5: #DCDCDC;
     --color6: #414a6b;;
+
+    --wrapper-height: 0px;
 }
 
 h1, h2, h3, h4, h5 {
@@ -35,23 +38,23 @@ p {
 }
 
 #wrapper {
-
     height: auto;
     position: relative;
     padding-left: 50px;
     padding-right: 50px;
     box-sizing: border-box;
+    
 }
 
 #lines {
-    box-sizing: border-box;
-    top: 50px;
+    
     position: absolute;
+    top: 50px;
     height: calc(100% - 50px);
     width: calc(100% - 100px);
     z-index: -100;
-    display: grid;
-    grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+    display: flex;
+    
 }
 
 #linebox1 {
@@ -59,18 +62,10 @@ p {
 }
 
 .linebox {
-    border-right: solid var(--color5) 1px;
+    width: 20%;
     height: 100%;
-    width: 100%;
-    box-sizing: border-box;
-
-}
-
-
-.theline {
-    width: 70px;
-    padding-bottom: 10px;
-
+    border-right: solid var(--color5) 1px; 
+    
 }
 
 .linetext {
@@ -82,6 +77,14 @@ p {
     transform: rotate(90deg);
     
 }
+
+.theline {
+    width: 70px;
+    padding-bottom: 10px;
+
+}
+
+
 
 #linetext1 {
     top: 20%;
@@ -343,7 +346,7 @@ p {
 
 
 #interestswrap {
-    min-height: 100vh;
+    min-height: calc(100vh - 100px);
     display: flex;
     align-items: center;
     padding: 10px;
@@ -369,7 +372,7 @@ p {
 /*---------------------------*/
 
 #contactwrap {
-    min-height: 100vh;
+    min-height: calc(100vh);
     display: flex;
     align-items: center;
 
@@ -418,12 +421,16 @@ p {
 
 }
 
+.linebox {
+    width: 25%;
+    
+}
 
 #lines {
-    grid-template-columns: 1fr 1fr 1fr 1fr;
     width: calc(100% - 20px);
 
 }
+
 
 #middleline {
     display: none;

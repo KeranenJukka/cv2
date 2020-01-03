@@ -1,7 +1,7 @@
 import React from 'react';
 import './frontpage.css';
 
-import { TweenMax } from "gsap/all";
+import { gsap } from 'gsap';
 
 import mina from "./pictures/mina.jpg";
 import mina2 from "./pictures/mina2.jpg";
@@ -18,8 +18,15 @@ componentDidMount () {
     window.scrollTo(0, 0);
 
     setTimeout(() => {
-        TweenMax.to(orangebox, 1, {width: "50%"})
-    }, 1000);
+        gsap.to(orangebox, 1, {width: "50%"})
+    }, 1500);
+
+
+    var wrapperHeight = document.getElementById("wrapper").clientHeight;
+
+    console.log(wrapperHeight)
+
+    document.documentElement.style.setProperty('--wrapper-height', wrapperHeight + "px");
 
 
     var orangebox = document.getElementById("orangebox");
@@ -29,14 +36,14 @@ componentDidMount () {
 
         // Orangebox animation
 
-        if (window.pageYOffset > 0) {
+        if (window.pageYOffset > 10) {
 
-            TweenMax.to(orangebox, 1, {width: "0%"})
+            gsap.to(orangebox, 1, {width: "0%"})
 
         }
 
         else {
-            TweenMax.to(orangebox, 1, {width: "50%"})
+            gsap.to(orangebox, 1, {width: "50%"})
         }
 
 
@@ -47,40 +54,40 @@ componentDidMount () {
         var me = document.getElementById("mewrap2");
         
         if (window.pageYOffset > me.offsetTop - window.innerHeight + 100) {
-            TweenMax.to(me, speed, {opacity: 1, top: 0})
+            gsap.to(me, speed, {opacity: 1, top: 0})
         }
 
-        else {TweenMax.to(me, 0, {opacity: 0, top: "50px"})}
+        else {gsap.to(me, 0, {opacity: 0, top: "50px"})}
 
         /*------------------*/
 
         var mewide = document.getElementById("mewide");
         
         if (window.pageYOffset > mewide.offsetTop - window.innerHeight + 100) {
-            TweenMax.to(mewide, speed, {opacity: 1, top: 0})
+            gsap.to(mewide, speed, {opacity: 1, top: 0})
         }
 
-        else {TweenMax.to(mewide, 0, {opacity: 0, top: "50px"})}
+        else {gsap.to(mewide, 0, {opacity: 0, top: "50px"})}
 
         /*------------------*/
 
         var skills = document.getElementById("skillstext");
         
         if (window.pageYOffset > skills.offsetTop - window.innerHeight + 100) {
-            TweenMax.to(skills, speed, {opacity: 1, top: 0})
+            gsap.to(skills, speed, {opacity: 1, top: 0})
         }
 
-        else {TweenMax.to(skills, 0, {opacity: 0, top: "50px"})}
+        else {gsap.to(skills, 0, {opacity: 0, top: "50px"})}
 
         /*------------------*/
 
         var cv = document.getElementById("cvtext");
         
         if (window.pageYOffset > cv.offsetTop - window.innerHeight + 100) {
-            TweenMax.to(cv, speed, {opacity: 1, top: 0})
+            gsap.to(cv, speed, {opacity: 1, top: 0})
         }
 
-        else {TweenMax.to(cv, 0, {opacity: 0, top: "50px"})}
+        else {gsap.to(cv, 0, {opacity: 0, top: "50px"})}
 
 
        /*------------------*/
@@ -88,10 +95,10 @@ componentDidMount () {
         var interests = document.getElementById("interestswrap2");
         
         if (window.pageYOffset > interests.offsetTop - window.innerHeight + 100) {
-            TweenMax.to(interests, speed, {opacity: 1, top: 0})
+            gsap.to(interests, speed, {opacity: 1, top: 0})
         }
 
-        else {TweenMax.to(interests, 0, {opacity: 0, top: "50px"})}
+        else {gsap.to(interests, 0, {opacity: 0, top: "50px"})}
 
 
         /*------------------*/
@@ -99,10 +106,10 @@ componentDidMount () {
         var contact = document.getElementById("contacttext");
         
         if (window.pageYOffset > contact.offsetTop - window.innerHeight + 100) {
-            TweenMax.to(contact, speed, {opacity: 1, top: 0})
+            gsap.to(contact, speed, {opacity: 1, top: 0})
         }
 
-        else {TweenMax.to(contact, 0, {opacity: 0, top: "50px"})}
+        else {gsap.to(contact, 0, {opacity: 0, top: "50px"})}
 
 
     }
@@ -116,16 +123,8 @@ return (
 
     <div id="wrapper">
 
-    <div id="jk"></div>
+    <div style={{position: "absolute", top: "-100px"}} id="jk"></div>
 
-    <div id="lines">
-        <div id="linebox1" className="linebox"><p className="linetext" id="linetext1">scroll down >></p><p className="linetext" id="linetext2">scroll down >></p><p className="linetext" id="linetext3">scroll down >></p><p className="linetext" id="linetext4">scroll down >></p></div>
-        <div className="linebox"></div>
-        <div id="middleline" className="linebox"></div>
-        <div className="linebox"></div>
-        <div className="linebox"><p className="linetext" id="linetext5">scroll down >></p><p className="linetext" id="linetext6">scroll down >></p><p className="linetext" id="linetext7">scroll down >></p><p className="linetext" id="linetext8">scroll down >></p></div>
-        
-    </div>
 
     <div id="start">
     
@@ -297,7 +296,7 @@ return (
 
                 <div id="intereststext">
                     <p>Olen pelannut videopelejä 7-vuotiaasta asti ja pelaan edelleen. Tällä hetkellä työn alla ovat God of War ja Company of Heroes 2.</p>
-                    <p>Myös elokuvat ovat kiinnostaneet kauan. Seuraavaksi aion mennnä katsomaan uuden Star Warsin.</p>
+                    <p>Myös elokuvat ovat kiinnostaneet kauan. Seuraavaksi aion mennnä katsomaan Underwaterin.</p>
                     <p>Musiikki on kuulunut elämääni aina. Vaikka en ole enää niin aktiivinen muusikko, kuuntelen edelleen paljon musiikkia ja ajoittain puuhailen pienten musiikkiprojektien kanssa.</p>
                     <p>Pidän sijoittamisesta, joten seuraan osakemarkkinoita jonkin verran.</p>
                     
@@ -318,6 +317,16 @@ return (
     
         </div>
     
+
+        <div id="lines">
+        <div id="linebox1" className="linebox"><p className="linetext" id="linetext1">scroll down >></p><p className="linetext" id="linetext2">scroll down >></p><p className="linetext" id="linetext3">scroll down >></p><p className="linetext" id="linetext4">scroll down >></p></div>
+        <div className="linebox"></div>
+        <div id="middleline" className="linebox"></div>
+        <div className="linebox"></div>
+        <div className="linebox"><p className="linetext" id="linetext5">scroll down >></p><p className="linetext" id="linetext6">scroll down >></p><p className="linetext" id="linetext7">scroll down >></p><p className="linetext" id="linetext8">scroll down >></p></div>
+        
+        </div>
+
 
       </div>
 

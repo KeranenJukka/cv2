@@ -1,7 +1,7 @@
 import React from 'react';
 import './header.css';
 
-import { TweenMax } from "gsap/all";
+import { gsap } from "gsap";
 
 import ham from './pictures/ham.png'
 
@@ -26,17 +26,17 @@ mobileMenu = () => {
 
         this.status = "on";
         ham.style.transform = "rotate(-90deg)"
-        TweenMax.to(menu, 0.9, {width: "100%", height: "100vh"})
-        TweenMax.to(nav, 0, {display: "flex", delay: 0.9})
-        TweenMax.to(nav, 0.5, {opacity: 1, delay: 0.9})
+        gsap.to(menu, 0.9, {width: "100%", height: "100vh"})
+        gsap.to(nav, 0, {display: "flex", delay: 0.9})
+        gsap.to(nav, 0.5, {opacity: 1, delay: 0.9})
     }
 
    else if (this.status === "on") {
-        TweenMax.killTweensOf(nav);
+        gsap.killTweensOf(nav);
         this.status = "off";
         ham.style.transform = "rotate(0deg)"
-        TweenMax.to(nav, 0, {display: "none", delay: 0})
-        TweenMax.to(menu, 0.9, {width: "0%", height: "0vh"})
+        gsap.to(nav, 0, {display: "none", delay: 0})
+        gsap.to(menu, 0.9, {width: "0%", height: "0vh"})
     }
 
 }
